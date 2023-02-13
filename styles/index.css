@@ -3,7 +3,22 @@
 @tailwind utilities;
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
+  img[loading="lazy"] {
     clip-path: inset(0.6px);
   }
+}
+
+.cls-1 {
+  fill: #010101;
+}
+
+.cls-2,
+.cls-3 {
+  fill: #e52620;
+}
+
+.cls-3 {
+  stroke: #010101;
+  stroke-miterlimit: 10;
+  stroke-width: 10px;
 }
