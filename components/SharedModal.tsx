@@ -118,27 +118,24 @@ export default function SharedModal({
                 </>
               )}
               <div className="absolute top-0 right-0 flex items-center gap-2 p-3 text-white">
-                {navigation ? (
-                  <a
-                    href={`https://gallery.gina.keebcats.co.uk/p/${index}`}
-                    className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
-                    target="_blank"
-                    title="Open fullsize version"
-                    rel="noreferrer"
-                  >
-                    <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-                  </a>
-                ) : (
-                  <a
-                    href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20pic%20of%20Gina%20by%20@KeebCats!%0A%0Ahttps://gallery.gina.keebcats.co.uk/p/${index}`}
-                    className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
-                    target="_blank"
-                    title="Open fullsize version"
-                    rel="noreferrer"
-                  >
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                )}
+                <a
+                  href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20pic%20of%20Gina%20by%20@KeebCats!%0A%0Ahttps://gallery.gina.keebcats.co.uk/p/${index}`}
+                  className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
+                  target="_blank"
+                  title="Open fullsize version"
+                  rel="noreferrer"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a
+                  href={`https://gallery.gina.keebcats.co.uk/p/${index}`}
+                  className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
+                  target="_blank"
+                  title="Open fullsize version"
+                  rel="noreferrer"
+                >
+                  <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+                </a>
                 <button
                   onClick={() =>
                     downloadPhoto(
