@@ -1,4 +1,13 @@
 {
+  "author": {
+    "name": "Hayden D.",
+    "email": "hello@halosync.io",
+    "url": "https://halosync.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KeebCats/clickture-gallery.git"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
