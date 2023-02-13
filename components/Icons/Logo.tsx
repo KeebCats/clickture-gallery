@@ -1,13 +1,14 @@
 export default function Logo() {
   return (
     <svg
-      aria-labelledby="conf-logo-title-header"
+      aria-labelledby="keebcats-title-header"
       fill="none"
       role="img"
       viewBox="0 0 575.75 575.75"
-      width="96"
-      height="96"
+      // width="96"
+      // height="96"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-48 h-48 md:w-24 md:h-24"
     >
       <g id="_1.2">
         <g id="Background_Circle">

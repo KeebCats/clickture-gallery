@@ -1,7 +1,7 @@
-export default function Bridge() {
+export default function Gina() {
   return (
     <svg
-      aria-labelledby="conf-city-title"
+      aria-labelledby="gina-title"
       fill="none"
       role="img"
       viewBox="0 0 1233 1027"
@@ -9,12 +9,12 @@ export default function Bridge() {
       height="1027"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title id="conf-city-title">
-        Line drawing of the Golden Gate Bridge in San Francisco.
+      <title id="gina-title">
+        Line drawing of the Gina Macro-Numpad by KeebCats.
       </title>
       <g
         transform="translate(0.000000,750.000000) scale(0.100000,-0.100000)"
-        fill="#4A4949"
+        fill="#FBF2D5"
       >
         <path
           d="M6620 9991 c-23 -8 -308 -119 -685 -268 -77 -31 -225 -88 -330 -128
