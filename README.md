@@ -1,4 +1,4 @@
-# Clickture Gallery
+# Clickture Gallery 🐱⌨️
 
 Welcome to the Clickture Gallery! This is a simple image gallery for the Gina by KeebCats! If you're interested in what the Gina is, check out the [KeebCats website](https://keebcats.co.uk/).
 
