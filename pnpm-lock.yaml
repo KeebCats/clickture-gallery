@@ -5,6 +5,7 @@ specifiers:
   '@heroicons/react': ^2.0.15
   '@types/node': 18.13.0
   '@types/react': 18.0.28
+  '@vercel/analytics': ^0.1.8
   autoprefixer: ^10.4.13
   cloudinary: ^1.33.0
   eslint-config-next: ^13.1.6
@@ -28,6 +29,7 @@ specifiers:
 dependencies:
   '@headlessui/react': 1.7.10_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.15_react@18.2.0
+  '@vercel/analytics': 0.1.8_react@18.2.0
   cloudinary: 1.33.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
   framer-motion: 9.0.2_biqbaboplfbrettd7655fr4n2y
@@ -459,6 +461,14 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.51.0
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@vercel/analytics/0.1.8_react@18.2.0:
+    resolution: {integrity: sha512-PQrOI8BJ9qUiVJuQfnKiJd15eDjDJH9TBKsNeMrtelT4NAk7d9mBVz1CoZkvoFnHQ0OW7Xnqmr1F2nScfAnznQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.2:
