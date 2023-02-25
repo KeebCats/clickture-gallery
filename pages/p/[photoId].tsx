@@ -6,6 +6,7 @@ import getResults from "../../utils/cachedImages";
 import cloudinary from "../../utils/cloudinary";
 import getBase64ImageUrl from "../../utils/generateBlurPlaceholder";
 import type { ImageProps } from "../../utils/types";
+import arrayMove from "../../utils/arrayMove";
 
 const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
   const router = useRouter();
@@ -45,6 +46,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
     });
     i++;
   }
+
+  const ginaHeroImage = reducedResults.find(
+    (r) => r.public_id === "gina/gina-hero"
+  );
+  const ginaQrCodeImage = reducedResults.find(
+    (r) => r.public_id === "gina/gina-qr-code-image"
+  );
+  arrayMove(reducedResults, reducedResults.indexOf(ginaHeroImage), 0);
+  arrayMove(reducedResults, reducedResults.indexOf(ginaQrCodeImage), 1);
 
   const currentPhoto = reducedResults.find(
     (img) => img.id === Number(context.params.photoId)

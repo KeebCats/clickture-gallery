@@ -11,6 +11,7 @@ import cloudinary from "../utils/cloudinary";
 import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
 import type { ImageProps } from "../utils/types";
 import { useLastViewedPhoto } from "../utils/useLastViewedPhoto";
+import arrayMove from "../utils/arrayMove";
 
 const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   const router = useRouter();
@@ -69,6 +70,14 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               presents Gina - a Macro-Numpad that boasts multiple layouts
               designed to suit 60% and 65% form factors.
             </p>
+            <Link
+              className="pointer z-10 mt-6 rounded-lg border border-white bg-white px-3 py-2 text-sm font-semibold text-black transition hover:bg-white/10 hover:text-white md:mt-4"
+              href="https://forms.gle/sHePCAU6k5rgv6AS9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Register your interest!
+            </Link>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
@@ -104,7 +113,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           className="font-semibold hover:text-white"
           rel="noreferrer"
         >
-          📸 by Hayden D. - KeebCats {new Date().getFullYear()}
+          📸 by Hayden D. (drunken_sailor) - KeebCats {new Date().getFullYear()}
         </a>
       </footer>
     </>
@@ -114,7 +123,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const results = await cloudinary.v2.search
+  const allResults = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
     .sort_by("public_id", "desc")
     .max_results(400)
@@ -122,7 +131,7 @@ export async function getStaticProps() {
   let reducedResults: ImageProps[] = [];
 
   let i = 0;
-  for (let result of results.resources) {
+  for (let result of allResults.resources) {
     reducedResults.push({
       id: i,
       height: result.height,
@@ -133,7 +142,17 @@ export async function getStaticProps() {
     i++;
   }
 
-  const blurImagePromises = results.resources.map((image: ImageProps) => {
+  const ginaHeroImage = reducedResults.find(
+    (r) => r.public_id === "gina/gina-hero"
+  );
+  const ginaQrCodeImage = reducedResults.find(
+    (r) => r.public_id === "gina/gina-qr-code-image"
+  );
+  // push the QR code to index 14
+  arrayMove(reducedResults, reducedResults.indexOf(ginaHeroImage), 0);
+  arrayMove(reducedResults, reducedResults.indexOf(ginaQrCodeImage), 1);
+
+  const blurImagePromises = allResults.resources.map((image: ImageProps) => {
     return getBase64ImageUrl(image);
   });
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);

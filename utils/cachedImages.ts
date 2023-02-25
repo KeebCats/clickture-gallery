@@ -1,3 +1,4 @@
+import arrayMove from "./arrayMove";
 import cloudinary from "./cloudinary";
 
 let cachedResults;
@@ -12,6 +13,15 @@ export default async function getResults() {
 
     cachedResults = fetchedResults;
   }
+
+  const ginaHeroImage = cachedResults.find(
+    (r) => r.public_id === "gina/gina-hero"
+  );
+  const ginaQrCodeImage = cachedResults.find(
+    (r) => r.public_id === "gina/gina-qr-code-image"
+  );
+  arrayMove(cachedResults, cachedResults.indexOf(ginaHeroImage), 0);
+  arrayMove(cachedResults, cachedResults.indexOf(ginaQrCodeImage), 1);
 
   return cachedResults;
 }
