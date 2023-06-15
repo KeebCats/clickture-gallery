@@ -145,12 +145,11 @@ export async function getStaticProps() {
   const ginaHeroImage = reducedResults.find(
     (r) => r.public_id === "gina/gina-hero"
   );
-  const ginaQrCodeImage = reducedResults.find(
-    (r) => r.public_id === "gina/gina-qr-code-image"
-  );
+  const ginaBanner = reducedResults.find((r) => r.public_id === "gina/banner");
+
   // push the QR code to index 14
   arrayMove(reducedResults, reducedResults.indexOf(ginaHeroImage), 0);
-  arrayMove(reducedResults, reducedResults.indexOf(ginaQrCodeImage), 1);
+  arrayMove(reducedResults, reducedResults.indexOf(ginaBanner), 1);
 
   const blurImagePromises = allResults.resources.map((image: ImageProps) => {
     return getBase64ImageUrl(image);

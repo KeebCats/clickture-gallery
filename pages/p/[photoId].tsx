@@ -50,9 +50,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const ginaHeroImage = reducedResults.find(
     (r) => r.public_id === "gina/gina-hero"
   );
-  const ginaBanner = reducedResults.find(
-    (r) => r.public_id === "gina/gina-qr-code-image"
-  );
+  const ginaBanner = reducedResults.find((r) => r.public_id === "gina/banner");
+
   arrayMove(reducedResults, reducedResults.indexOf(ginaHeroImage), 0);
   arrayMove(reducedResults, reducedResults.indexOf(ginaBanner), 1);
 
